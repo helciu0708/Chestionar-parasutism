@@ -53,24 +53,6 @@ button:disabled{opacity:.45;cursor:not-allowed}
  .question-card{padding:16px}.qtext{font-size:18px}.grid{grid-template-columns:repeat(10,1fr)}
  .timer{font-size:20px}
 }
-
-/* iPhone / iPad enhancements */
-html { -webkit-text-size-adjust: 100%; }
-body { min-height: 100vh; overscroll-behavior-y: contain; }
-button, .answer { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-button { min-height: 46px; }
-.answer { min-height: 58px; }
-@media (max-width: 650px) {
-  body { padding-bottom: env(safe-area-inset-bottom); }
-  header { padding-top: max(13px, env(safe-area-inset-top)); }
-  .app { padding-left: 8px; padding-right: 8px; }
-  .question-card { margin-bottom: 8px; }
-  .qtext { font-size: 19px; }
-  .answer { font-size: 16px; padding: 15px 12px; }
-  .nav button { flex: 1; }
-  .grid button { min-height: 38px; }
-}
-
 </style>
 </head>
 <body>
@@ -90,13 +72,13 @@ button { min-height: 46px; }
 <section id="start" class="panel">
  <div class="start-title">Gata pentru testare?</div>
 <p class="muted" id="readyMsg">Apasă START TESTARE pentru a genera bateria.</p>
- <p>La fiecare pornire se generează o nouă baterie de 60 de întrebări din întreaga bază de 188 de întrebări. Întrebările nu se repetă în aceeași baterie, iar variantele sunt amestecate.</p>
+ <p>La fiecare pornire se generează o nouă baterie de 60 de întrebări din întreaga bază de 188 de întrebări. Fiecare baterie conține exact 19 Reglementări, 13 Meteorologie, 10 Aerodinamică, 6 Tehnica saltului și 12 PSPM-1. Întrebările nu se repetă în aceeași baterie, ordinea întrebărilor este amestecată, iar cele 3 variante sunt amestecate.</p>
  <div class="stats">
   <div class="stat"><b>188</b><span>întrebări în baza completă</span></div>
   <div class="stat"><b>60</b><span>întrebări / baterie</span></div>
   <div class="stat"><b>60 min</b><span>timp maxim</span></div>
  </div>
- <div class="muted"><b>Repartizare orientativă pe baterie:</b></div>
+ <div class="muted"><b>Repartizare pe fiecare baterie:</b></div>
  <div class="dist">
   <span class="chip">Reglementări: 19</span>
   <span class="chip">Meteorologie: 13</span>
@@ -146,7 +128,7 @@ function startTest(){
  quiz=makeBattery();answers=Array(60).fill(null);pos=0;submitted=false;timeLeft=3600;
  document.getElementById("start").classList.add("hidden");
  document.getElementById("result").classList.add("hidden");
- document.getElementById("test").classList.remove("hidden");
+  document.getElementById("test").classList.remove("hidden");
  document.getElementById("header").classList.remove("hidden");
  render();updateTimer();clearInterval(timerId);timerId=setInterval(tick,1000);
  window.scrollTo({top:0,behavior:"smooth"});
@@ -226,12 +208,6 @@ document.addEventListener("DOMContentLoaded", function(){
     startTest();
   });
 });
-</script>
-
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{}));
-}
 </script>
 </body>
 </html>
