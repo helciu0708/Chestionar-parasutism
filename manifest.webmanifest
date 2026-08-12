@@ -1,0 +1,12 @@
+{
+  "name": "Chestionar Licență Parașutism",
+  "short_name": "Chestionar Parașutism",
+  "description": "Baterii aleatorii de 60 de întrebări, cu timp de 60 de minute.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f6fb",
+  "theme_color": "#3159c8",
+  "lang": "ro",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml"}]
+}
